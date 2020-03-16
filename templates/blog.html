@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>flask startup </title>
+{% endblock %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>blog post</h2>
+            <div>
+                <h2>Create a new Blog post</h2>
+                <form method="post" action="">
+                    Title : <input type="text" id="title" name="title" /> <br />
+                    Author : <input type="text" id="author" name="author" /> <br />
+                    content : <textarea id="content" name="content"> </textarea> <br />
+                    <input type="submit" class="submit" value="Create Post">
+                </form>
+            </div>
+            <ul>
+                {% for post in posts %}
+
+                <li>
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.content}}</p>
+                    {% if post.author %}
+                    <h4>{{post.author}}</h4>
+                    {% endif %}
+                </li>
+
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
